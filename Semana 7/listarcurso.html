@@ -10,7 +10,6 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -28,7 +27,7 @@
             <table class="table table-striped
             table-hover	
             table-borderless
-            table-primary
+            table-light
             align-middle">
                 <thead class="table-light">
                     <caption>Listar Curso</caption>
@@ -37,6 +36,8 @@
                         <th>Nombre</th>
                         <th>Descripcion</th>
                         <th>Tiempo</th>
+                        <th>Usuario</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody class="table-group-divider" id="resultados">
@@ -52,6 +53,28 @@
       <footer>
         <!-- place footer here -->
       </footer>
+
+<!-- Modal Eliminar -->
+<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title" id="modalTitleId">Modal Eliminar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="idEliminar" id="idEliminar">
+        Desea eliminar el registro: <span id="resultadoId"></span> ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" onclick="eliminarId()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   </div>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -65,6 +88,7 @@
   <script>
     var contenidoTablaResultado = document.querySelector("#resultados");
     var loadmenu = document.querySelector("#loadmenu");
+    const modalEliminar = new bootstrap.Modal(document.getElementById('modalEliminar'));
 
     function cargarDatos(){
 //"id":"174","nombre":"Progrmacion JR webgh","descripcion":"Para nuevos estudiantes","tiempo":"8"
@@ -78,25 +102,60 @@
     }
 
     function settable(data){
-        console.log('data',data);
+       // console.log('data',data);
        
         for (const valor of data) {
-            console.log('valor: ',valor);
+           // console.log('valor: ',valor);
             contenidoTablaResultado.innerHTML += 
-                    `<tr class="table-primary" >
+                    `<tr class="table-light" >
                             <td scope="row">${valor.id}</td>
                             <td>${valor.nombre}</td>
                             <td>${valor.descripcion}</td>
                             <td>${valor.tiempo}</td>
+                            <td>${valor.usuario}</td>
+                            <td>
+                              <a name="" id="" class="btn btn-primary" href="#" role="button">Editar</a>
+                              ||
+                              <a name="" id="" class="btn btn-danger" role="button" onclick="funcioneliminar('${valor.id}')">Eliminar</a>
+                            </td>
                         </tr>`;
         }
     }
 
+    function funcioneliminar(id){
+      modalEliminar.show();
+      document.getElementById('resultadoId').innerHTML = id;
+      document.getElementById('idEliminar').value = id;      
+    }
+
+    function eliminarId(){
+      id = document.getElementById('idEliminar').value;
+
+      var datosenviar ={
+        id: id
+      };
+
+      fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
+        {
+            method:'POST',
+            body: JSON.stringify(datosenviar)
+        }
+        )//url de peticion de datos
+            .then(respuesta => respuesta.json())//recibe los datos en formato json
+            .then((datosrepuesta) => {                
+                completeDelete()
+            })
+            .catch(console.log)//muestra errores
+    }
+
+    function completeDelete(){
+      modalEliminar.hide();
+      contenidoTablaResultado.innerHTML = ``;
+      cargarDatos();
+    }
 
     cargarDatos();
-    // {"code":200,
-    // "message":"Cursos Lista",
-    // "data":[{"id":"174","nombre":"Progrmacion JR webgh","descripcion":"Para nuevos estudiantes","tiempo":"8"},
+  
   </script>
 
           <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->

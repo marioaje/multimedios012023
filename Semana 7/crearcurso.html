@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>Crear Curso</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,9 +14,11 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <header>
-            <!-- place navbar here -->
+          <div id="loadmenu">
+
+          </div>
         </header>
         <main>
             <form id="formulario">
@@ -58,7 +60,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
-
+<script src="js/menu.js"></script>
 <script>
     var formulario = document.getElementById('formulario');
 
@@ -87,6 +89,10 @@
 
 </script>
 
+  <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
+  <script>
+    var triggerEl = document.querySelector('#navId a')            
+  </script>
 
 </body>
 

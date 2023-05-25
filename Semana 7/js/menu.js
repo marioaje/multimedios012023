@@ -5,7 +5,8 @@ var activepagelistarestudiante = '';
 var activepagelistargrupo = '';
 var activepagelistarusuario = '';
 var activepagehome = '';
-
+var activepagelistargrupo = '';
+var activecrearcurso = '';
 
 
 // Seccion de listar
@@ -34,9 +35,19 @@ if ( "Listar Usuario" == namepage )
     activepagelistarusuario='active';
 }
 
+if ( "Listar Grupo" == namepage )
+{
+    activepagelistargrupo='active';
+}
+
 if ( "Home" == namepage )
 {
     activepagehome='active';
+}
+
+if ("Crear Curso" == namepage )
+{
+    activecrearcurso='active';
 }
 
 
@@ -58,14 +69,14 @@ loadmenu.innerHTML +=
                         <a class="nav-link dropdown-toggle ${activepagelistarcurso}" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <a class="dropdown-item ${activepagelistarcurso}" href="listarcurso.html">Listar</a>
-                            <a class="dropdown-item" href="#">Crear</a>
+                            <a class="dropdown-item ${activecrearcurso}" href="crearcurso.html">Crear</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ${activepagelistarestudiante}" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estudiantes</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <a class="dropdown-item ${activepagelistarestudiante}" href="listarestudiante.html">Listar</a>
-                            <a class="dropdown-item" href="#">Crear</a>
+                            <a class="dropdown-item" href="crearestudiante.html">Crear</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -78,7 +89,7 @@ loadmenu.innerHTML +=
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ${activepagelistargrupo}" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Grupos</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item ${activepagelistargrupo}" href="listarcurso.html">Listar</a>
+                            <a class="dropdown-item ${activepagelistargrupo}" href="listargrupo.html">Listar</a>
                             <a class="dropdown-item" href="#">Crear</a>
                         </div>
                     </li>      

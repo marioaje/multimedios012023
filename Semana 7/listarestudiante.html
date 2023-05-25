@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Listar Profesor</title>
+  <title>Listar Estudiante</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -79,7 +79,7 @@
 
     function cargarDatos(){
 //"id":"174","nombre":"Progrmacion JR webgh","descripcion":"Para nuevos estudiantes","tiempo":"8"
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaProfesores.php")//la url de peticion 
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaEstudiantes.php")//la url de peticion 
         .then(respuesta => respuesta.json())//recibe los datos en json
         .then((datosrespuesta) => {
           //  console.log('datosrespuesta',datosrespuesta.data)
