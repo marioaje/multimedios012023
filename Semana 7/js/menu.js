@@ -10,49 +10,41 @@ var activecrearcurso = '';
 
 
 // Seccion de listar
-if ( "Listar Curso" == namepage )
-{
-    activepagelistarcurso='active';
+if ("Listar Curso" == namepage) {
+    activepagelistarcurso = 'active';
 }
 
-if ( "Listar Profesor" == namepage )
-{
-    activepagelistarprofesor='active';
+if ("Listar Profesor" == namepage) {
+    activepagelistarprofesor = 'active';
 }
 
-if ( "Listar Grupo" == namepage )
-{
-    activepagelistargrupo='active';
+if ("Listar Grupo" == namepage) {
+    activepagelistargrupo = 'active';
 }
 
-if ( "Listar Estudiante" == namepage )
-{
-    activepagelistarestudiante='active';
+if ("Listar Estudiante" == namepage) {
+    activepagelistarestudiante = 'active';
 }
 
-if ( "Listar Usuario" == namepage )
-{
-    activepagelistarusuario='active';
+if ("Listar Usuario" == namepage) {
+    activepagelistarusuario = 'active';
 }
 
-if ( "Listar Grupo" == namepage )
-{
-    activepagelistargrupo='active';
+if ("Listar Grupo" == namepage) {
+    activepagelistargrupo = 'active';
 }
 
-if ( "Home" == namepage )
-{
-    activepagehome='active';
+if ("Home" == namepage) {
+    activepagehome = 'active';
 }
 
-if ("Crear Curso" == namepage )
-{
-    activecrearcurso='active';
+if ("Crear Curso" == namepage) {
+    activecrearcurso = 'active';
 }
 
 
-loadmenu.innerHTML += 
-`
+loadmenu.innerHTML +=
+    `
 <nav class="navbar navbar-expand-xxl navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Mario</a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -69,7 +61,7 @@ loadmenu.innerHTML +=
                         <a class="nav-link dropdown-toggle ${activepagelistarcurso}" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <a class="dropdown-item ${activepagelistarcurso}" href="listarcurso.html">Listar</a>
-                            <a class="dropdown-item ${activecrearcurso}" href="crearcurso.html">Crear</a>
+                            <a class="dropdown-item ${activecrearcurso}" href="crearcursos.html">Crear</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

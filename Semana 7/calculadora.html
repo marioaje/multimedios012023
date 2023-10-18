@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interfaz del 0 al 9 con botones</title>
+  <!-- Agregar los enlaces a los archivos CSS de Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Interfaz del 0 al 9 con botones</h1>
+    <div class="row">
+      <div class="col-6">
+        <input type="number" id="numberInput" class="form-control mt-3">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <div class="col-4">
+            <label for="">Lunes y Jueves 1110</label>
+            <button class="btn btn-primary" onclick="handleButton1110()">1110</button>
+        </div>
+        <div class="col-4">
+            <label for="">Martes, Miercoles y Sabado</label>
+            <button class="btn btn-primary" onclick="handleButton1220()">1220</button>    
+        </div>
+        <div class="col-4">
+            <label for="">Miercoles y Domingo</label>
+            <button class="btn btn-primary" onclick="handleButton1330()">1330</button>    
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-6">
+        <div id="resultado"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agregar el enlace al archivo JavaScript de Bootstrap (opcional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function handleButton1110() {
+      var numberInput = parseInt(document.getElementById("numberInput").value);
+      var divisionResult = numberInput / 1110;
+      
+      var resultString = divisionResult.toString();
+      var suma = 0;
+        for (var i = 0; i < resultString.length; i++) {
+            if (!isNaN(resultString[i])) {
+                suma += parseInt(resultString[i]);
+            }
+        }
+      
+      document.getElementById("resultado").innerHTML = "Sumatoria de la división: " + suma;
+    }
+    function handleButton1220() {
+      var numberInput = parseInt(document.getElementById("numberInput").value);
+      var divisionResult = numberInput / 1220;
+      
+      var resultString = divisionResult.toString();
+      var suma = 0;
+        for (var i = 0; i < resultString.length; i++) {
+            if (!isNaN(resultString[i])) {
+                suma += parseInt(resultString[i]);
+            }
+        }
+      
+      document.getElementById("resultado").innerHTML = "Sumatoria de la división: " + suma;
+    }
+    function handleButton1330() {
+      var numberInput = parseInt(document.getElementById("numberInput").value);
+      var divisionResult = numberInput / 1330;
+      
+      var resultString = divisionResult.toString();
+      var suma = 0;
+        for (var i = 0; i < resultString.length; i++) {
+            if (!isNaN(resultString[i])) {
+                suma += parseInt(resultString[i]);
+            }
+        }
+      
+      document.getElementById("resultado").innerHTML = "Sumatoria de la división: " + suma;
+    }    
+ 
+ </script>
+</body>
+</html>

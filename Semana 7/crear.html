@@ -1,3 +1,11 @@
+
+76
+
+72
+77
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -60,33 +68,33 @@
   </script>
 
 <script>
-    var formulario = document.getElementById('formulario');
+    // var formulario = document.getElementById('formulario');
 
 
-    formulario.addEventListener('submit', function(e){
-        alert('Salvando');
-        e.preventDefault();
+    // formulario.addEventListener('submit', function(e){
+    //     alert('Salvando');
+    //     e.preventDefault();
 
-        var datosenviar= {
-            nombre:"React 22", 
-            descripcion:"React Junior", 
-            tiempo:"10 Meses", 
-            usuario:"profesor Mario" 
-        }
+    //     var datosenviar= {
+    //         nombre:"React 22", 
+    //         descripcion:"React Junior", 
+    //         tiempo:"10 Meses", 
+    //         usuario:"profesor Mario" 
+    //     }
             
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php",
-        {
-            method:'POST',
-            body: JSON.stringify(datosenviar)
-        }
-        )//url de peticion de datos
-            .then(respuesta => respuesta.json())//recibe los datos en formato json
-            .then((datosrepuesta) => {
+    //     fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php",
+    //     {
+    //         method:'POST',
+    //         body: JSON.stringify(datosenviar)
+    //     }
+    //     )//url de peticion de datos
+    //         .then(respuesta => respuesta.json())//recibe los datos en formato json
+    //         .then((datosrepuesta) => {
                 
-                console.log('Datos',datosrepuesta)//Muestra el resultado de la peticion
-            })
-            .catch(console.log)//muestra errores
-        });
+    //             console.log('Datos',datosrepuesta)//Muestra el resultado de la peticion
+    //         })
+    //         .catch(console.log)//muestra errores
+    //     });
 
 </script>
 
